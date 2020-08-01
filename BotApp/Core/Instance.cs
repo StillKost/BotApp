@@ -11,8 +11,9 @@ namespace BotApp.Core
         {
             return new DiscordClient(new DiscordConfiguration
             {
-                Token = "NjY0MDY3MjY4OTc5NzIwMTky.XhRu7w.2BCGwBZ4RLtpgrH4fpdamdkuxM8",
+                Token = "NzM5MTExNjQ4NDc2MDA0NDAz.XyVtXQ.uyjy7LgmLodpQEdeNHYpNkIoVBU",
                 TokenType = TokenType.Bot,
+                AutoReconnect = true,
                 UseInternalLogHandler = true,
                 LogLevel = LogLevel.Debug
             });

@@ -1,4 +1,5 @@
-﻿using BotApp.Core;
+﻿using BotApp.Controllers;
+using BotApp.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,6 @@ namespace BotApp
         public static async void SetBot()
         {
             var instance = new Instance().CreateInstance();
-
             if (instance == null)
             {
                 MessageBox.Show("Укажите токен бота в настройках");
@@ -65,6 +65,12 @@ namespace BotApp
         private void Form1_Load(object sender, EventArgs e)
         {
             var t = new Task(SetBot);
+            var timer = new Timer()
+            {
+                Interval = 1000 * 5
+            };
+            timer.Tick += new EventHandler(new WatcherController().SetWatcher);
+            timer.Start();
             t.Start();
         }
     }
